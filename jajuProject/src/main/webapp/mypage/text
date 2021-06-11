@@ -1,0 +1,70 @@
+미경이랑 디자인 맞추기
+
+include 해결
+
+main page 정렬 
+
+스크랩 - 
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>	
+<script src="/jaju/js/.js"></script>
+
+<!-- <div align="center" class="myMainContainer">
+ -->	
+ 
+ <!-- <div class="wrapDIV">
+ 		<div class="wrap">
+
+		<div class="inner_mypage">
+		
+		<div align="center" class="profile_box">
+		
+			<div>
+				<img class="profile_image" src="/jaju/logo/6.png" alt="">
+			</div>
+			
+			<div align="center" class="profile_box_wrap">
+				<div class="grade_logo">회원</div>
+				<strong class="name">안민지님</strong>
+			</div>
+					
+			<h2 class="profile_name">'로그인한 사람'님</h2>
+				<ul class="profile_items">
+					<li><a href="#">&emsp;닉네임&ensp;</a></li>
+					<li><a href="#">거래횟수&ensp;</a></li>
+					<li><a href="#">매너온도&ensp;</a></li>
+					<li><a href="#">내 문의사항&ensp;</a></li>
+				</ul>
+		</div>
+
+		<div align="center"  class="scrap_box">
+			<a href="#" class="link_wrap">
+				<div class="fa-container">
+					<i class="far fa-heart fa-3x"></i>
+				</div>
+				<h2 class="text-center">찜목록</h2>
+				<h3 class="text-bottom">'5'개</h3>
+			</a>
+		</div>
+
+		<div align="center"  class="follow_box">
+			<a href="#" class="link_wrap">
+				<div class="fa-container">
+					<i class="fas fa-user-friends fa-3x"></i>
+				</div>
+				<h2 class="text-center">팔로우</h2>
+				<h3 class="text-bottom">'10'개</h3>
+			</a>
+		</div>
+
+		<div align="center"  class="message_box">
+			<a href="#" class="link_wrap">
+				<div class="fa-container">
+					<i class="fas fa-envelope-square fa-3x"></i>
+				</div>
+				<h2 class="text-center">쪽찌</h2>
+				<h3 class="text-bottom">'10'개</h3>
+			</a>
+		</div>
+	</div>
+	</div> -->

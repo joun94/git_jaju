@@ -1,0 +1,203 @@
+@charset "UTF-8";
+.page_aticle.aticle_type2 {
+    padding-top: 65px;
+}
+
+.page_aticle {
+    width: 1050px;
+    margin: 0 auto;
+}
+div, th, td, li, dt, dd, p {
+    word-break: break-all;
+}
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+body, input, select, textarea, button {
+    font-family: noto sans,malgun gothic,AppleGothic,dotum;
+    line-height: 1;
+    letter-spacing: -.05em;
+    color: #4c4c4c;
+    font-size: 12px;
+    max-width: 100%;
+}
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.page_aticle.aticle_type2:after {
+    content: "";
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    clear: both;
+}
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    font-family: noto sans,malgun gothic,AppleGothic,dotum;
+    line-height: 1;
+    letter-spacing: -.05em;
+    color: #4c4c4c;
+    font-size: 12px;
+    max-width: 100%;
+}
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+/*/------------------*/
+.myMessageWrap{
+	margin-top:2px;
+	margin-left:10px;
+	text-align: center;
+}
+.head_aticle,.list-description{
+	text-align: center;
+}
+.tit {
+    height: 36px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    color: #333;
+    letter-spacing: -.5px;
+}
+.board-header-container {
+    padding-bottom: 38px;
+    font-family: Noto Sans;
+}
+
+.list-description {
+    font-family: Noto Sans;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #999;
+}
+.list-description li{
+	font-family: noto sans;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+ol, ul {
+    list-style-type: none;
+}
+.mainMessage{
+    width: 820px;
+}
+.message_Btn{
+	height:25px;
+	border-bottom: 1px solid black;
+	text-align: right;
+}
+.message_title{
+display: table;
+table-layout: fixed;
+border-bottom: 1px solid #333;
+}    
+.message_title div{
+	display: table-cell;
+    text-align: center;
+    padding: 18px 0 20px;
+    width: 100px;
+    font-family: Noto Sans;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 700;
+    letter-spacing: -.5px;
+    color: #333;
+}
+.inquiry-empty {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    padding: 117px 0;
+    text-align: center;
+    cursor: default;
+}
+.paging-navigation * {
+    font-family: noto sans;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+.board-list>li {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    padding: 16px 0;
+    font-family: Noto Sans;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.deleteBtn, .sendBtn {
+	width:60px;
+    height: 25px;
+    padding-top: 4px;
+    border: 1px solid #f4f4f3;
+    border-radius: 15px;
+    background-color: #f4f4f4;
+    font-size: 18px;
+    color: #333;
+    line-height: 18px;
+    text-align: center;
+}
+.deleteBtn a, .sendBtn a {
+	text-decoration: none;
+	vertical-align: top;
+}
+.paging-navigation{
+	text-align: center;
+}
+.paging-navigation>button {
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    margin: 0;
+    background: 0;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.paging-prev{
+	margin-right: 12px;
+    background-image: url(https://res.kurly.com/kurly/img/2021/direction_prev_disabled_24_44_gray.svg);
+}
+.paging-next{
+	background-image: url(https://res.kurly.com/kurly/img/2021/direction_next_disabled_24_44_gray.svg);
+}
+.mainMessage{
+	align-content: center;
+	display: inline-block;
+}
+.test{
+	align-content: center;
+}

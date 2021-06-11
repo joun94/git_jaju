@@ -1,0 +1,82 @@
+@charset "UTF-8";
+* {
+    font-family: noto sans,malgun gothic,AppleGothic,dotum;
+    line-height: 2;
+    letter-spacing: -.05em;
+    color: #4c4c4c;
+    font-size: 15px;
+    max-width: 100%;
+}
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+.head_aticle,.list-description{
+	text-align: center;
+}
+.tit {
+	margin-left:-10px;
+    height: 36px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    color: #333;
+    letter-spacing: -.5px;
+}
+.board-header-container {
+    padding-bottom: 38px;
+    font-family: Noto Sans;
+}
+
+.list-description {
+    font-family: Noto Sans;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #999;
+}
+.list-description li{
+	font-family: noto sans;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+ol, ul {
+    list-style-type: none;
+}
+.localset_none {
+    line-height: 18px;
+    overflow: hidden;
+    min-height: 37px;
+    margin-top: 5px;
+    padding: 18px;
+    text-align: center;
+    color: #666;
+    background: #f8f8f8;
+}
+.location_title{
+text-align: center;
+margin-top:10px;
+visibility: hidden;
+}
+#sido1{
+	margin-left: -50px;
+}
+#gugun1, #dong1{
+	margin-left: 100px;
+}
+#output_location{
+	text-align: center;
+	margin-top: 20px;
+}
+#selected_sido,#selected_sigungu,#selected_dong{
+	width:150px;
+    height: 25px;
+    padding-top: 4px;
+    border: 1px solid #f4f4f3;
+    font-size: 18px;
+    color: #333;
+	display: inline-block;
+    line-height: 18px;
+	visibility: visible; /*확인 후 hidden으로 감춰서 jquery로 show 해주기*/
+}

@@ -1,0 +1,95 @@
+@charset "UTF-8";
+@font-face {
+     font-family: 'S-CoreDream-4Regular';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+* {
+    font-family: 'S-CoreDream-4Regular';
+    line-height: 2;
+    letter-spacing: -.05em;
+    color: #4c4c4c;
+    font-size: 15px;
+    max-width: 100%;
+}
+body {
+    width: 100%;
+    height: 100%;
+    -webkit-text-size-adjust: none;
+}
+html {
+     font-family: 'S-CoreDream-4Regular';
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+#myKeywordDiv{
+	float: left;
+	margin-left: 200px;
+}
+.keywordList{
+	border-bottom: 1px solid #333;
+}
+.head_aticle, .list-description{
+	text-align: center;
+}
+.tit {
+    height: 36px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    color: #333;
+    letter-spacing: -.5px;
+}
+.board-header-container {
+    padding-bottom: 38px;
+    font-family: 'S-CoreDream-4Regular';
+}
+
+.list-description {
+    font-family: 'S-CoreDream-4Regular';
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #999;
+    margin-bottom: 5px;
+}
+.list-description li{
+    font-family: 'S-CoreDream-4Regular';
+    font-weight: 400;
+    letter-spacing: 0;
+    font: 15px Arial, sans-serif, #808080;
+    
+}
+ol, ul {
+    list-style-type: none;
+}
+.mainMessage{
+	width:100%;
+	align-content: center;
+	display: inline-block;
+}
+.message_Btn{
+	align-content:center;
+	margin-top:8px;
+	width:100%;
+	height:25px;
+	align-content: center;
+}
+.message_Btn:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.deleteBtn, .sendBtn{
+	width:80px;
+	height:25px;
+    border-radius: 50px 50px 50px 50px;
+    vertical-align: top;
+    text-align: center;
+    background-color: #ddd;
+}
+.text td:eq(0){
+	text-align: right;
+}
+
