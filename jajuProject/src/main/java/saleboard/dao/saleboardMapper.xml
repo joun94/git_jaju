@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="saleboardSQL">
+
+	<!-- 글쓰기 -->
+
+	<insert parameterType="saleboard" id="saleboardWrite">
+			insert into sale_board
+			values
+			(sale_seq_sale_board.nextval,#{sale_state},#{sale_subject},${sale_price},#{sale_nego},#{sale_category},#{sale_condition},#{sale_direct},#{sale_delivery},#{sale_onlineTran},#{sale_content},#{member_id},${sale_hit},sysdate,#{sale_hide},#{sale_buyer},#{sale_image1},#{sale_image2},#{sale_image3},#{sale_image4},#{sale_image5},#{sale_image6},#{sale_image7},#{sale_image8},#{sale_image9},#{sale_image10})
+	</insert>
+	
+	<select id="getSaleboardList" resultType="saleboard" parameterType="java.util.Map">
+		<if test='sortinSelect != "low_sale_price" '>
+			select * from (
+	 		select rownum rn ,tt.*from(
+	 		select * from sale_board order by ${sortinSelect} desc)tt)
+	 		<![CDATA[where rn >= ${startNum} and rn <=${endNum}]]>
+ 		</if>
+ 		<if test='sortinSelect == "low_sale_price" '>
+			select * from (
+	 		select rownum rn ,tt.*from(
+	 		select * from sale_board order by sale_price asc)tt)
+	 		<![CDATA[where rn >= ${startNum} and rn <=${endNum}]]>
+ 		</if>
+	</select>
+	
+	<select id="getSaleboardView" parameterType="int" resultType="saleboard">
+		select * from sale_board where sale_seq = #{sale_seq}
+	</select>
+	
+	<select id="getTotal" resultType="int">
+		select count(*) as count from sale_board
+	</select>
+	
+	<select id="getSearchSaleboardList" resultType="saleboard" parameterType="java.util.Map">
+		
+		<if test='sale_category == "*" '>
+			select * from (
+	 		select rownum rn ,tt.*from(
+	 		select * from sale_board where sale_subject like '%'||#{searchText}||'%' order by sale_date desc)tt)
+	 		<![CDATA[where rn >= ${startNum} and rn <= ${endNum}]]>
+	 	</if>
+		<if test='sale_category != "*" '>
+			select * from (
+	 		select rownum rn ,tt.*from(
+	 		select * from sale_board where sale_category like #{sale_category} and sale_subject like '%'||#{searchText}||'%' order by sale_date desc)tt)
+	 		<![CDATA[where rn >= ${startNum} and rn <= ${endNum}]]>
+	 	</if>
+	</select>
+	
+	<select id="getSearchTotal" resultType="int" parameterType="java.util.Map">
+		<if test='sale_category == "*" '>
+			select count(*) as count from sale_board where sale_subject like '%'||#{searchText}||'%'
+		</if>
+		<if test='sale_category != "*" '>
+			select count(*) as count from sale_board where sale_category like #{sale_category} and sale_subject like '%'||#{searchText}||'%'
+		</if>
+	</select>
+	
+	<!-- 글 수정 -->
+	 <update id="saleboardModify" parameterType="saleboard">
+	 	update sale_board set sale_state=#{sale_state},
+	 							sale_subject=#{sale_subject},
+	 							sale_price=${sale_price},
+	 							sale_nego=#{sale_nego},
+	 							sale_category=#{sale_category},
+	 							sale_condition=#{sale_condition},
+	  							sale_direct=#{sale_direct},
+	  							sale_delivery=#{sale_delivery},
+	  							sale_onlineTran=#{sale_onlineTran},
+	  							sale_content=#{sale_content},			
+	 							sale_date=sysdate,		
+	  							sale_hide=#{sale_hide},
+	   							sale_buyer=#{sale_buyer},
+	   							sale_image1=#{sale_image1},
+	 							sale_image2=#{sale_image2},
+	 							sale_image3=#{sale_image3},
+	 							sale_image4=#{sale_image4},
+	  							sale_image5=#{sale_image5},
+	  							sale_image6=#{sale_image6},
+	   							sale_image7=#{sale_image7},
+	  							sale_image8=#{sale_image8},
+	   							sale_image9=#{sale_image9},
+	 							sale_image10=#{sale_image10}
+	 						where sale_seq=#{sale_seq}
+	 </update>
+	 
+	 <!-- 삭제 -->
+	<delete id="saleboardDelete" parameterType="int">
+	 	delete sale_board where sale_seq=#{sale_seq}
+	</delete>
+	
+	</mapper>

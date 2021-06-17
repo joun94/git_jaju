@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="inquireSQL">
+ 
+ 	<insert id="inquireWrite" parameterType="inquire">
+		insert into inquiryboard values(inquiry_seq.nextval,
+				 						#{inquiry_id},
+				 						#{inquiry_name},
+				 						#{inquiryType},
+				 						#{inquiry_telephone},
+				 						#{inquiry_subject},
+				 						#{inquiry_contents},
+				 						#{inquiry_image1},
+				 						#{inquiry_image2},
+				 						#{inquiry_image3},
+				 						#{inquiry_pseq},
+				 						#{inquiry_ref},
+				 						#{inquiry_lev},
+				 						#{inquiry_state},
+				 						 sysdate)
+	</insert>
+	
+	<select id = "getInquireList" parameterType = "java.util.Map" resultType = "inquire">
+ 		select *from (select rownum rn, tt.* from
+		(select * from inquiryboard order by inquiry_seq desc)tt)
+		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+		
+		<!-- 
+		<![CDATA[
+		select *from (select rownum rn, tt.* from
+		(select * from imageboard order by seq desc)tt)
+		where rn >=#{startNum} and rn <=#{endNum}
+		]]>
+		이렇게 쓰면 <>기호도 사용 가능하다.
+		 -->
+ 	</select>
+ 	
+ 	<select id="getInquireView" parameterType="int" resultType="inquire">
+		select * from inquiryboard where inquiry_seq = #{inquiry_seq}
+	</select>
+ 	
+ </mapper>

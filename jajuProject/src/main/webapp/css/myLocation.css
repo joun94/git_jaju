@@ -1,0 +1,169 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'S-CoreDream-4Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+* {
+	line-height: 2;
+	letter-spacing: -.05em;
+	color: #4c4c4c;
+	font-size: 15px;
+	max-width: 100%;
+	font-family: 'S-CoreDream-4Regular';
+}
+
+html {
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+.head_aticle, .list-description {
+	text-align: center;
+}
+
+.tit {
+	margin-left: -10px;
+	height: 36px;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 36px;
+	color: #333;
+	letter-spacing: -.5px;
+}
+
+.list-description {
+	font-size: 14px;
+	line-height: 24px;
+	font-weight: 400;
+	color: #999;
+	display: table-cell;
+}
+
+}
+.list-description li {
+	display: inline-block;
+	font-weight: 400;
+	letter-spacing: 0;
+}
+
+ol, ul {
+	list-style-type: none;
+}
+
+.localset_none {
+	line-height: 18px;
+	overflow: hidden;
+	min-height: 37px;
+	margin-top: 5px;
+	padding: 18px;
+	text-align: center;
+	color: #666;
+	background: #f8f8f8;
+	margin-bottom: 15px;
+}
+
+.location_title {
+	text-align: center;
+	margin-top: 10px;
+	visibility: hidden;
+}
+
+#sido1 {
+	margin-left: 60px;
+}
+
+#gugun1 {
+	/*margin-left: 65px;*/
+	
+}
+
+#lobtn2 {
+	margin-left: 25px;
+}
+
+#location1_addr1, #location1_addr2, #location2_addr1, #location2_addr2,
+	#location3_addr1, #location3_addr2 {
+	/* 	width:150px;
+    height: 25px;
+    border: 1px solid black;
+    font-size: 14px;
+    color: #333;
+	display: inline-block;
+	visibility: visible; */
+	display: inline-block;
+	width: 150px;
+	height: 30px;
+	line-height: 18px;
+	overflow: hidden;
+	min-height: 37px;
+	/*margin-top: 5px;*/
+	text-align: center;
+	color: #666;
+	font-size: 18px;
+	background: #f8f8f8;
+	/*margin-bottom: 15px;*/
+	line-height: inherit;
+	margin-left: 3px;
+}
+
+#selectec_sido {
+	margin-left: -20px;
+}
+
+#selected_sido, #selected_sigungu {
+	/* 	width:150px;
+    height: 25px;
+    margin-left:20px;
+    border: 1px solid #f4f4f3;
+    font-size: 18px;
+    color: #333;
+	display: inline-block;
+    line-height: 18px;
+    visibility: visible; 확인 후 hidden으로 감춰서 jquery로 show 해주기 */
+	display: inline-block;
+	width: 150px;
+	height: 30px;
+	line-height: 18px;
+	overflow: hidden;
+	min-height: 37px;
+	margin-top: 5px; text-align : center; color : #666; font-size : 18px;
+	background : #f8f8f8;
+	/*margin-bottom: 15px;*/
+	line-height: inherit;
+	text-align: center;
+	color: #666;
+	font-size: 18px;
+	background: #f8f8f8;
+}
+
+.myLocationFormDiv {
+	/*     display: inline-block;
+    width: 600px;
+    height: 500px;
+    float: left; */
+	width: 40%;
+	display: inline-block;
+	height: 500px;
+	float: left;
+	box-sizing: border-box;
+	-webkit-box-flex: 1;
+	flex: 1;
+}
+#select_box_div{
+	margin-top: -20px;
+}
+#output_location, #output_location1, #output_location2,
+	#output_location3 {
+	text-align: left;
+	width: 100%;
+}
+
+#output_location {
+	text-align: left;
+}
