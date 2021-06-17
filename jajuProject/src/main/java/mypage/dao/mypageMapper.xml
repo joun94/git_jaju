@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="mypageSQL">
+
+<!-- =================== KEYWORD =================== -->
+
+<!-- db에서 키워드 값 가져오기 -->
+<select id="getKeywordList" parameterType="String" resultType="mypage">
+	select * from keyword where keyword_id=#{id}
+</select>
+
+<!-- db에 키워드 값 저장(키워드+아이디) ==>리스트로 하려다가 포기. 
+<insert id="myKeyword" parameterType="java.util.Map">
+	insert into keyword() values (#{keyword1,})
+	<foreach collection="list" item="item" index="index" open="(" close=")" separator=",">
+		#{item}
+	</foreach>
+</insert> -->
+
+<!-- 관심키워드등록 -->
+
+<insert id="myKeyword" parameterType="java.util.Map">
+	insert into keyword values(#{id},#{keyword1},#{keyword2},#{keyword3},#{keyword4},#{keyword5})
+</insert>
+<update id="updateMyKeyword" parameterType="java.util.Map">
+	 update keyword set keyword1=#{keyword1},keyword2=#{keyword2},keyword3=#{keyword3},keyword4=#{keyword4},keyword5=#{keyword5} where keyword_id=#{id}
+</update>
+
+<select id="getKeywordCountNum1" parameterType="String" resultType="int">
+	select count(*) from keyword where keyword1 is null and keyword_id=#{id}
+</select>
+<select id="getKeywordCountNum2" parameterType="String" resultType="int">
+	select count(*) from keyword where keyword2 is null and keyword_id=#{id}
+</select>
+<select id="getKeywordCountNum3" parameterType="String" resultType="int">
+	select count(*) from keyword where keyword3 is null and keyword_id=#{id}
+</select>
+<select id="getKeywordCountNum4" parameterType="String" resultType="int">
+	select count(*) from keyword where keyword4 is null and keyword_id=#{id}
+</select>
+<select id="getKeywordCountNum5" parameterType="String" resultType="int">
+	select count(*) from keyword where keyword5 is null and keyword_id=#{id}
+</select>  
+
+<!-- =================== FOLLOW =================== -->
+
+<!-- 팔로우 리스트 -->
+<select id="getFollowList" parameterType="java.util.Map" resultType="mypageFollow">
+<!-- select * from follow where member_id=#{id} order by follow_seq  -->
+	select * from (select rownum rn, tt.* from(select * from follow where member_id=#{id} order by follow_seq desc)tt)where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+</select>
+
+<delete id="deleteFollowList" parameterType="java.util.Map" >
+	delete from follow where follow_seq in 
+	<foreach collection="array" item="data" open="(" close=")" separator=",">
+		#{data}
+	<!-- ${array[i]} -->
+	</foreach>
+</delete>
+
+<!-- =================== MESSAGE =================== -->
+
+<!-- MESSAGE list 불러오기 , 이건 찾아보는중...-->
+<select id="getMyMessageList" parameterType="String" resultType="mypageMessage">
+	select * from message where message_reader=#{id} and message_change in(0,1) order by message_seq
+<!-- 	select * from (select rownum rn, tt.* from(select * from message where member_id=#{id} order by seq desc)tt)where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+ -->	
+</select>	
+
+<!-- MESSAGE 상세뷰 -->
+<select id="myMessageView" parameterType="java.util.Map" resultType="mypageMessage" >
+	select * from message where message_seq=#{seq}
+</select>
+
+<!-- MESSAGE 삭제 -->
+<update id="deleteMyMessage" parameterType="java.util.Map" >
+	update message set message_change=3 where message_seq in
+	<foreach collection="array" item="data" open="(" close=")" separator=",">
+		#{data}
+	<!-- ${array[i]} -->
+	</foreach>
+<!-- 	and message_reader=#{id}
+ --></update>
+
+<!-- =================== SCRAP =================== -->
+
+<!-- 찜목록 불러오기, 원글은 어떻게 가져올 것이냐? -->
+<select id="getMyScrapList" parameterType="java.util.Map" resultType="mypageScrap">
+<!-- select * from scrap where member_id=#{id} order by seq_scrap -->
+ 	select * from (select rownum rn, tt.* from(select * from scrap where member_id=#{id} order by scrap_seq desc)tt)where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+ 	<!-- scrap_seq,member_id,scrap_date,sale_seq,sale_state, sale_subject,sale_image1
+ 	 	select * from sale 
+	 	union all
+	 	select * from scrap where member_id=#{id} order by seq_scrap -->
+</select>
+
+<!-- 찜목록 삭제  deleteMyScrap -->
+<delete id="deleteMyScrap" parameterType="java.util.Map" >
+	delete from scrap where scrap_seq in 
+	<foreach collection="array" item="data" open="(" close=")" separator=",">
+		#{data}
+	<!-- ${array[i]} -->
+	</foreach>
+</delete>
+
+<!-- =================== LOCATION =================== -->
+
+<!-- 지역설정  -->
+<update id="mylocationWrite" parameterType="java.util.Map" >
+	update location set location2_addr1= #{sido1},
+				 location2_addr2=#{gugun1}
+				where location_id = #{id}
+</update>
+<update id="mylocationWrite2" parameterType="java.util.Map" >
+	update location set location3_addr1= #{sido1},
+				 location3_addr2=#{gugun1}
+				where location_id = #{id}
+</update>
+<update id="mylocationDelete" parameterType="java.util.Map" >
+	update location set location2_addr1= null,
+				 location2_addr2=null
+				where location_id = #{id}
+</update>
+<update id="mylocationDelete2" parameterType="java.util.Map" >
+	update location set location3_addr1= null,
+				 location3_addr2=null
+				where location_id = #{id}
+</update>
+<select id="mylocationList" parameterType="java.util.Map" resultType="mylocation">
+	select * from location where location_id=#{id}
+</select>
+<select id="mylocationCount" parameterType="java.util.Map" resultType="mylocation">
+	select  count(location2_addr1)as location2_addr1 ,count(location3_addr1)as location3_addr1 from location where location_id=#{id}
+</select>
+
+<!-- =================== PAGING =================== -->
+
+<!-- 팔로우 리스트 paging처리 -->
+<select id="getTotalA" parameterType="String" resultType="int">
+	select count(*) from follow where member_id=#{id}
+</select>
+
+<!-- 스크랩 리스트 paging처리 -->
+<select id="getScrapTotalA" resultType="int">
+	select count(*) from scrap
+</select>
+
+</mapper>
+ 

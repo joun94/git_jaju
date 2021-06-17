@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="memberreportSQL">
+ 
+	<!-- 글쓰기 -->
+ 	<insert id="reportWrite" parameterType="report">
+ 		insert into memberreport values (#{sale_seq},
+	 							   #{sale_id}, 							
+	 							   seq_memberreport.nextval,
+	 							   #{report_id},
+	 							   #{report_name},
+	 							   #{reportType},
+	 							   #{report_tal},
+	 							   #{report_subject},
+	 							   #{report_content},
+	 							   #{report_image1},
+	 							   #{report_image2},
+	 							   #{report_image3},
+	 							   #{report_state},
+	 							   sysdate)
+ 	</insert>
+ 	
+ 	<!-- 목록 --><!-- 페이징 처리 -->
+ 	<select id="getReportList" parameterType="java.util.Map" resultType="report">
+ 		select * from
+ 		(select rownum rn, tt.* from
+ 		(select * from memberreport order by report_seq desc)tt
+ 		)where rn &gt;= #{startNum} and rn &lt;= #{endNum}
+ 	</select>
+ 	 
+ 	<!-- 총 글수 -->
+ 	<select id="getTotalA" resultType="int">
+ 		select count(*) from memberreport
+ 	</select>
+ 	
+ 	<!-- 수정 -->
+ 	<update id="reportModify" parameterType="java.util.Map">
+ 		update memberreport set report_subject=#{report_subject},
+						 report_content=#{report_content},
+						 logtime=sysdate where report_seq=#{report_seq}
+ 	</update>
+ 	
+ 	<!-- 한 사람글  -->
+ 	<select id="getReport" parameterType="int" resultType="report">
+ 		select * from memberreport where report_seq=#{report_seq}
+ 	</select>
+ 	
+	<!-- 검색 -->
+	<select id="getReportSearchList" parameterType="java.util.Map" resultType="report">
+		<![CDATA[
+			select * from 
+			(select rownum rn, tt. * from 
+	 		(select * from memberreport where ${searchOption} like '%'||#{keyword}||'%' 
+	 		                     order by report_seq desc)tt) 
+	 		where rn >= #{startNum} and rn <= #{endNum}
+		]]>
+	</select>
+	 
+	  <!-- 검색한 총글수 -->
+	<select id="getTotalSearchA" parameterType="java.util.Map" resultType="int">
+		select count(*) from memberreport where ${searchOption} like '%'||#{keyword}||'%'
+	</select>
+	 
+	 <!-- 글삭제 -->
+	  <delete id="reportDelete" parameterType="int">
+	 		delete from memberreport where report_seq=#{report_seq};
+	 </delete>
+	 
+ </mapper>

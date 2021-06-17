@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+ 
+ <configuration>
+ 	<typeAliases>
+ 		<typeAlias type="member.bean.MemberDTO" alias="member"/>
+ 		<typeAlias type="notice.bean.NoticeDTO" alias="notice"/>
+		<typeAlias type="report.bean.ReportDTO" alias="report"/>
+		<typeAlias type="inquire.bean.InquireDTO" alias="inquire"/>
+		<typeAlias type="saleboard.bean.SaleboardDTO" alias="saleboard"/>
+		<typeAlias type="freeboard.bean.FreeboardDTO" alias="freeboard"/>
+		<typeAlias alias="mypage" type="mypage.bean.MypageDTO" />
+		<typeAlias alias="mypageFollow" type="mypage.bean.FollowDTO" />
+		<typeAlias alias="mypageMessage" type="mypage.bean.MessageDTO" />
+		<typeAlias alias="mypageScrap" type="mypage.bean.ScrapDTO" />
+		<typeAlias alias="mylocation" type="mypage.bean.MylocationDTO" />
+ 	</typeAliases>
+ </configuration>

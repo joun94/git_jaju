@@ -1,0 +1,106 @@
+@charset "UTF-8";
+@font-face {
+     font-family: 'S-CoreDream-4Regular';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+* {
+    line-height: 2;
+    letter-spacing: -.05em;
+    color: #4c4c4c;
+    font-size: 15px;
+    max-width: 100%;
+    font-family: 'S-CoreDream-4Regular';
+   -webkit-text-size-adjust: 100%;
+}
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+.head_aticle,.list-description{
+	text-align: center;
+}
+.tit {
+	margin-left:-10px;
+    height: 36px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    color: #333;
+    letter-spacing: -.5px;
+}
+.board-header-container {
+/*  padding-bottom: 38px; */
+}
+
+.list-description {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #999;
+}
+.list-description li{
+    font-weight: 400;
+    letter-spacing: 0;
+}
+ol, ul {
+    list-style-type: none;
+}
+.deleteBtn{
+	width:60px;
+    height: 25px;
+    border: 1px solid #f4f4f3;
+    border-radius: 15px;
+    background-color: #f4f4f4;
+    font-size: 18px;
+    color: #333;
+    line-height: 18px;
+    text-align: center;
+    vertical-align: text-bottom;
+}
+.deleteBtn a {
+	text-decoration: none;
+	vertical-align: text-top;
+}
+.myFollowDiv {
+    display: inline-block;
+	width: 40%;
+    height: 600px;
+    margin-bottom:5%;
+    float: left;
+    box-sizing: border-box;
+    -webkit-box-flex: 1;
+    flex: 1;
+}
+.myFollowDiv:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+#currentPaging {
+	color: #47597e;
+	text-decoration: none; /**/
+	cursor : pointer;
+	padding : 8px; 
+	margin : 10px;
+	border: 1px solid #f4f4f3;
+}
+#currentPaging:hover{
+	border: 1px solid #47597e;
+}
+#paging {
+	color: black;
+	text-decoration: none;
+	align-items: center;
+	cursor : pointer;
+	padding : 8px;
+	margin : 10px;
+	border: 1px solid #f4f4f4;
+}
+#paging:hover{
+	border: 1px solid #dddddd;
+}
+#followPagingDiv{
+	margin-top: 15px;
+}
